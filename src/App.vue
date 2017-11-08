@@ -1,41 +1,51 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <button class="btn btn-success" @click="modal">modal</button>
+    {{modals}}
+    <modal v-for="(modal, key) in modals" v-bind="modal" @close="close(modal)" :key="key"></modal>
   </div>
 </template>
 
 <script>
+import Modal from './Modal.vue'
+
 export default {
   name: 'app',
+  components: {
+    Modal
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      modals: []
     }
+  },
+  methods: {
+    modal () {
+      this.modals.push({
+        title: 'title',
+        message: 'message',
+        prompt: true,
+        onClose (data) {
+          console.log(data)
+        }
+      })
+    },
+    close (modal) {
+      this.modals.splice(this.modals.indexOf(modal), 1)
+    }
+  },
+  mounted () {
+    this.$root.$el.appendChild(document.createElement('modal'))
   }
 }
 </script>
 
 <style>
+@import "~bootstrap/dist/css/bootstrap.css";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
