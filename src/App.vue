@@ -4,27 +4,27 @@
 </template>
 
 <script>
-import ModalBody from './ModalBody.vue'
 
 export default {
   name: 'app',
-  data () {
-    return {
-      modals: []
-    }
-  },
   mounted () {
     var vm = this.$modal({
       propsData: {
-        title: 'title'
+        title: '标题',
+        data: {
+          prompt: true
+        }
       },
       components: {
-        ModalBody
+        // ModalBody: {render: () => ''}
       }
     })
     vm.$on('postive', () => {
       console.log('点击了确定')
-      vm.$destroy()
+      var body = vm.$refs.body
+      var value = body.value
+      console.log(value)
+      value&&vm.$destroy()
     })
     vm.$on('negative', () => {
       console.log('点击了取消')
