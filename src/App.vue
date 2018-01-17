@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import ModalBody from './ModalBody.vue'
 
 export default {
   name: 'app',
@@ -13,7 +14,17 @@ export default {
     }
   },
   mounted () {
-    this.$modal()
+    var vm = this.$modal({
+      propsData: {
+        title: 'title'
+      },
+      components: {
+        ModalBody
+      }
+    })
+    setTimeout(() => {
+      vm.$destroy()
+    }, 5000)
   }
 }
 </script>

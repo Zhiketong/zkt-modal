@@ -6,11 +6,13 @@
       <span aria-hidden="true">×</span>
     </button>
     <div class="modal-content">
-      <header class="modal-header" v-if="title">{{title}}</header>
+      <header class="modal-header" v-if="title" ref="header">{{title}}</header>
       <content class="modal-body">
-        <modal-body v-bind="props"></modal-body>
+        <modal-body v-bind="props" ref="body"></modal-body>
       </content>
-      <footer class="modal-footer">
+      <footer class="modal-footer" ref="footer">
+        <button class="btn btn-primary">确定</button>
+        <button class="btn btn-default">取消</button>
       </footer>
     </div>
   </div>
