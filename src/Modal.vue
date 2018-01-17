@@ -1,6 +1,6 @@
 <template>
 <div class="component-modal modal fade in">
-  <div class="modal-backdrop fade in" @click.self="close"></div>
+  <div class="modal-backdrop fade in"></div>
   <div class="modal-dialog" :class="'modal-'+size">
     <button class="close" @click="close">
       <span aria-hidden="true">×</span>
