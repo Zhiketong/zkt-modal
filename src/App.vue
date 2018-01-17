@@ -11,6 +11,7 @@ export default {
     var vm = this.$modal({
       propsData: {
         title: '标题',
+        size: 'sm',
         data: {
           prompt: true
         }
