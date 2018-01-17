@@ -11,8 +11,8 @@
         <modal-body v-bind="data" ref="body"></modal-body>
       </content>
       <footer class="modal-footer" ref="footer">
-        <button class="btn btn-primary" @click="$emit('postive')">确定</button>
-        <button class="btn btn-default" @click="$emit('negative')">取消</button>
+        <button class="btn btn-primary" @click="$emit('postive')">{{okText}}</button>
+        <button class="btn btn-default" @click="$emit('negative')">{{cancelText}}</button>
       </footer>
     </div>
   </div>
@@ -39,6 +39,14 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    okText: {
+      type: String,
+      default: '确定'
+    },
+    cancelText: {
+      type: String,
+      default: '取消'
     }
   },
   methods: {
