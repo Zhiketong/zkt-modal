@@ -1,7 +1,6 @@
-import Vue from 'vue'
 import Modal from './Modal.vue'
 
-const ModalConstructor = Vue.extend(Modal)
+var ModalConstructor
 
 function modal (opts) {
   var instance = new ModalConstructor(opts)
@@ -10,11 +9,10 @@ function modal (opts) {
   return instance
 }
 
-function install (opts) {
+function install (Vue, opts) {
+  ModalConstructor = Vue.extend(Modal)
   Vue.prototype.$modal = modal
   Vue.modal = modal
 }
 
-export default {
-  install
-}
+export default install
