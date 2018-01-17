@@ -1,6 +1,6 @@
-# vue-modal-bootstrap
+# 直客通对话框组件
 
-> vue modal plugin
+> 直客通对话框组件,用于复杂弹窗界面交互
 
 ## Usage
 
