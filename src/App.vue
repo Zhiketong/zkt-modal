@@ -22,9 +22,14 @@ export default {
         ModalBody
       }
     })
-    setTimeout(() => {
+    vm.$on('postive', () => {
+      console.log('点击了确定')
       vm.$destroy()
-    }, 5000)
+    })
+    vm.$on('negative', () => {
+      console.log('点击了取消')
+      vm.$destroy()
+    })
   }
 }
 </script>

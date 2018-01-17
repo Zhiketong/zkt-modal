@@ -8,11 +8,11 @@
     <div class="modal-content">
       <header class="modal-header" v-if="title" ref="header">{{title}}</header>
       <content class="modal-body">
-        <modal-body v-bind="props" ref="body"></modal-body>
+        <modal-body v-bind="data" ref="body"></modal-body>
       </content>
       <footer class="modal-footer" ref="footer">
-        <button class="btn btn-primary">确定</button>
-        <button class="btn btn-default">取消</button>
+        <button class="btn btn-primary" @click="$emit('postive')">确定</button>
+        <button class="btn btn-default" @click="$emit('negative')">取消</button>
       </footer>
     </div>
   </div>
@@ -26,7 +26,7 @@ export default {
     ModalBody: {render: () => ''}
   },
   props: {
-    props: {
+    data: {
       type: Object,
       default () {
         return {}
