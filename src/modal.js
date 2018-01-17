@@ -4,12 +4,7 @@ import Modal from './Modal.vue'
 const ModalConstructor = Vue.extend(Modal)
 
 function modal (opts) {
-  var instance = new ModalConstructor({
-    propsData: opts
-  })
-  if (opts.component) {
-    instance.$options.components[opts.name] = opts.component
-  }
+  var instance = new ModalConstructor(opts)
   instance.$mount()
   document.body.appendChild(instance.$el)
   return instance

@@ -1,6 +1,6 @@
 <template>
 <div class="component-modal modal fade in">
-  <div class="modal-backdrop fade in" v-if="backdrop" @click.self="close"></div>
+  <div class="modal-backdrop fade in" @click.self="close"></div>
   <div class="modal-dialog" :class="'modal-'+size">
     <button class="close" @click="close">
       <span aria-hidden="true">×</span>
@@ -8,13 +8,9 @@
     <div class="modal-content">
       <header class="modal-header" v-if="title">{{title}}</header>
       <content class="modal-body">
-        <p v-if="message">{{message}}</p>
-        <input type="text" class="form-control" v-model="input" v-if="prompt">
-        <component :is="name" v-if="name" v-bind="props"></component>
-        <slot></slot>
+        <modal-body v-bind="props"></modal-body>
       </content>
-      <footer class="modal-footer" v-if="actions&&actions.length">
-        <button class="btn" v-for="action in actions" :class="['btn-'+action.type]" @click="onAction(action)">{{action.text}}</button>
+      <footer class="modal-footer">
       </footer>
     </div>
   </div>
@@ -23,26 +19,11 @@
 
 <script>
 export default {
-  name: 'modal',
+  name: 'Modal',
+  components: {
+    ModalBody: {render: () => ''}
+  },
   props: {
-    name: {
-      type: String,
-      default: ''
-    },
-    component: {
-      type: Object,
-      default () {
-        return {}
-      }
-    },
-    message: {
-      type: String,
-      default: ''
-    },
-    prompt: {
-      type: Boolean,
-      default: false
-    },
     props: {
       type: Object,
       default () {
@@ -51,60 +32,16 @@ export default {
     },
     size: {
       type: String,
-      default () {
-        return this.message ? 'sm' : 'md'
-      }
+      default: 'md'
     },
     title: {
       type: String,
       default: ''
-    },
-    backdrop: {
-      type: Boolean,
-      default: true
-    },
-    actions: {
-      type: Array,
-      default () {
-        var vm = this
-        if (!this.message) return []
-        return [{
-          text: 'OK',
-          type: 'success',
-          callback () {
-            vm.close(true)
-          }
-        }, {
-          text: 'Cancel',
-          type: 'default',
-          callback () {
-            vm.close(false)
-          }
-        }]
-      }
-    },
-    onClose: {
-      type: Function,
-      default () {
-        return () => {}
-      }
-    }
-  },
-  data () {
-    return {
-      input: ''
     }
   },
   methods: {
     close (data) {
-      this.onClose(this.prompt ? this.input : data)
-      this.$emit('close')
       this.$destroy()
-    },
-    onAction (action) {
-      if (action.callback) {
-        action.callback()
-      }
     }
   },
   mounted () {

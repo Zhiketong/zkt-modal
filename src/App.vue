@@ -1,41 +1,19 @@
 <template>
   <div id="app">
-    <button class="btn btn-success" @click="modal">modal</button>
-    {{modals}}
-    <modal v-for="(modal, key) in modals" v-bind="modal" @close="close(modal)" :key="key"></modal>
   </div>
 </template>
 
 <script>
-import Modal from './Modal.vue'
 
 export default {
   name: 'app',
-  components: {
-    Modal
-  },
   data () {
     return {
       modals: []
     }
   },
-  methods: {
-    modal () {
-      this.modals.push({
-        title: 'title',
-        message: 'message',
-        prompt: true,
-        onClose (data) {
-          console.log(data)
-        }
-      })
-    },
-    close (modal) {
-      this.modals.splice(this.modals.indexOf(modal), 1)
-    }
-  },
   mounted () {
-    this.$root.$el.appendChild(document.createElement('modal'))
+    this.$modal()
   }
 }
 </script>
