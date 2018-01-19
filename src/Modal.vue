@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style>
-.component-modal {
+.component-modal.modal {
   display: block;
 }
 .modal .modal-backdrop {
