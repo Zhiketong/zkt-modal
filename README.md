@@ -6,16 +6,14 @@
 
 ```javascript
 var vm = this.$modal({
-  propsData: {
     title: '标题',
+    size: 'sm',
     data: {
       prompt: true
     }
   },
-  components: {
-    // ModalBody: {render: () => ''}
-  }
-})
+  CustomComponent
+)
 vm.$on('postive', () => {
   console.log('点击了确定')
   var body = vm.$refs.body
