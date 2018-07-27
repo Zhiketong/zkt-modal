@@ -20,13 +20,8 @@
 </template>
 
 <script>
-import ModalBody from './ModalBody.vue'
-
 export default {
   name: 'Modal',
-  components: {
-    ModalBody
-  },
   props: {
     data: {
       type: Object,
