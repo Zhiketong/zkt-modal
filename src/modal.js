@@ -1,5 +1,4 @@
 import Modal from './Modal.vue'
-import ModalBody from './ModalBody.vue'
 
 var ModalConstructor
 

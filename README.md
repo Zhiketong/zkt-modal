@@ -8,9 +8,7 @@
 var vm = this.$modal({
     title: '标题',
     size: 'sm',
-    data: {
-      prompt: true
-    }
+    prompt: true
   },
   CustomComponent
 )

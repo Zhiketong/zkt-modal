@@ -11,18 +11,14 @@ export default {
     var vm = this.$modal({
         title: '标题',
         size: 'sm',
-        data: {
-          prompt: true
-        }
+        prompt: true,
+        autoClose: false
       },
       CustomComponent
     )
-    vm.$on('postive', () => {
-      console.log('点击了确定')
-      var body = vm.$refs.body
-      var value = body.value
-      console.log(value)
-      value&&vm.$destroy()
+    vm.$on('postive', (value) => {
+      console.log('点击了确定', value)
+      value && vm.$destroy()
     })
     vm.$on('negative', () => {
       console.log('点击了取消')

@@ -8,11 +8,15 @@
     <div class="modal-content">
       <header class="modal-header" v-if="title" ref="header">{{title}}</header>
       <content class="modal-body">
-        <modal-body v-bind="data" ref="body"></modal-body>
+        <div class="message-content" v-if="message||prompt">
+          <p v-if="message">{{message}}</p>
+          <input type="text" class="form-control" v-model="inputValue" v-if="prompt">
+        </div>
+        <modal-body  v-bind="data" ref="body"></modal-body>
       </content>
       <footer class="modal-footer" ref="footer">
-        <button class="btn btn-primary" @click="$emit('postive')">{{okText}}</button>
-        <button class="btn btn-default" @click="$emit('negative')">{{cancelText}}</button>
+        <button class="btn btn-primary" @click="postive">{{okText}}</button>
+        <button class="btn btn-default" @click="negative">{{cancelText}}</button>
       </footer>
     </div>
   </div>
@@ -44,11 +48,33 @@ export default {
     cancelText: {
       type: String,
       default: '取消'
+    },
+    message: {
+      type: String,
+      default: '确定这么做吗？'
+    },
+    prompt: {
+      type: Boolean,
+      default: false
+    },
+    inputValue: {
+    },
+    autoClose: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {
     close (data) {
       this.$destroy()
+    },
+    postive () {
+      this.$emit('postive', this.inputValue)
+      this.autoClose && this.$destroy()
+    },
+    negative () {
+      this.$emit('negative', this.inputValue)
+      this.autoClose && this.$destroy()
     }
   },
   mounted () {
