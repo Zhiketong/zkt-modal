@@ -5,10 +5,9 @@ var ModalConstructor
 function modal (opts, Component) {
   var obj = {
     propsData: opts,
-    components: {}
-  }
-  if (Component) {
-    obj.components.ModalBody = Component
+    components: {
+      ModalBody: Component
+    }
   }
   var instance = new ModalConstructor(obj)
   instance.$mount()

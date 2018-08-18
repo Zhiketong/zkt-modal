@@ -4,7 +4,6 @@
 </template>
 
 <script>
-import CustomComponent from './CustomComponent.vue'
 export default {
   name: 'app',
   mounted () {
@@ -17,7 +16,9 @@ export default {
           console.log(value, type)
         }
       },
-      CustomComponent
+      {
+        template: '<div>custom component</div>'
+      }
     )
     vm.$on('postive', (value) => {
       console.log('点击了确定', value)

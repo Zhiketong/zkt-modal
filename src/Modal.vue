@@ -12,7 +12,7 @@
           <p v-if="message">{{message}}</p>
           <input type="text" class="form-control" v-model="inputValue" v-if="prompt">
         </div>
-        <modal-body  v-bind="data" ref="body"></modal-body>
+        <modal-body v-if="$options.components.ModalBody" v-bind="data" ref="body"></modal-body>
       </content>
       <footer class="modal-footer" ref="footer">
         <button class="btn btn-primary" @click="postive">{{okText}}</button>
