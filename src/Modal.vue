@@ -51,7 +51,7 @@ export default {
     },
     message: {
       type: String,
-      default: '确定这么做吗？'
+      default: ''
     },
     prompt: {
       type: Boolean,
