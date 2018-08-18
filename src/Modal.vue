@@ -12,7 +12,7 @@
           <p v-if="message">{{message}}</p>
           <input type="text" class="form-control" v-model="inputValue" v-if="prompt">
         </div>
-        <modal-body v-if="$options.components.ModalBody" v-bind="data" ref="body"></modal-body>
+        <modal-body v-if="$options.components.ModalBody" v-bind="data" v-on="events" ref="body"></modal-body>
       </content>
       <footer class="modal-footer" v-if="okText||cancelText" ref="footer">
         <button class="btn btn-primary" v-if="okText" @click="postive">{{okText}}</button>
@@ -28,6 +28,12 @@ export default {
   name: 'Modal',
   props: {
     data: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    events: {
       type: Object,
       default () {
         return {}

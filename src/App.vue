@@ -17,10 +17,15 @@ export default {
         cancelText: '取消', // 取消按钮文案
         callback (value, type) { // 操作后的回调函数 value是输入框值， type是操作按钮类型 close,postive,negative
           console.log(value, type)
+        },
+        events: {
+          click () {
+            console.log('click')
+          }
         }
       },
       {
-        template: '<div>这是自定义组件</div>' // 自定义组件定义
+        template: '<div @click="$emit(\'click\')">这是自定义组件</div>' // 自定义组件定义
       }
     )
     // 绑定确认按钮触发的事件
