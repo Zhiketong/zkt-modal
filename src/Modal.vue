@@ -1,5 +1,5 @@
 <template>
-<div class="component-modal modal fade in" v-if="open">
+<div class="component-modal modal fade in">
   <div class="modal-backdrop fade in"></div>
   <div class="modal-dialog" :class="'modal-'+size">
     <button class="close" @click="close">
@@ -64,11 +64,6 @@ export default {
       default: true
     }
   },
-  data () {
-    return {
-      open: true
-    }
-  },
   methods: {
     close (data) {
       this.$destroy()
@@ -85,8 +80,8 @@ export default {
   mounted () {
     document.body.classList.add('modal-open')
   },
-  beforeDestory () {
-    this.open = false
+  beforeDestroy () {
+    this.$el.parentNode.removeChild(this.$el)
   },
   destroyed () {
     document.body.classList.remove('modal-open')
