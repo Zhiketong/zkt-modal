@@ -12,7 +12,10 @@ export default {
         title: '标题',
         size: 'sm',
         prompt: true,
-        autoClose: false
+        autoClose: false,
+        callback (value, type) {
+          console.log(value, type)
+        }
       },
       CustomComponent
     )
