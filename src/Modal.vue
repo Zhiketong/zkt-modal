@@ -14,9 +14,9 @@
         </div>
         <modal-body v-if="$options.components.ModalBody" v-bind="data" ref="body"></modal-body>
       </content>
-      <footer class="modal-footer" ref="footer">
-        <button class="btn btn-primary" @click="postive">{{okText}}</button>
-        <button class="btn btn-default" @click="negative">{{cancelText}}</button>
+      <footer class="modal-footer" v-if="okText||cancelText" ref="footer">
+        <button class="btn btn-primary" v-if="okText" @click="postive">{{okText}}</button>
+        <button class="btn btn-default" v-if="cancelText" @click="negative">{{cancelText}}</button>
       </footer>
     </div>
   </div>

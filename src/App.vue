@@ -8,10 +8,12 @@ export default {
   name: 'app',
   mounted () {
     var vm = this.$modal({
-        title: '标题',
+        // title: '标题',
         size: 'sm',
         prompt: true,
         autoClose: false,
+        okText: '',
+        cancelText: '',
         callback (value, type) {
           console.log(value, type)
         }
