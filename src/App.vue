@@ -15,17 +15,26 @@ export default {
         autoClose: false, // 是否自动关闭 默认为true
         okText: '好', // 确认按钮文案
         cancelText: '取消', // 取消按钮文案
-        callback (value, type) { // 操作后的回调函数 value是输入框值， type是操作按钮类型 close,postive,negative
+        callback (value, type, vm) { // 操作后的回调函数 value是输入框值， type是操作按钮类型 close,postive,negative
           console.log(value, type)
         },
         events: {
           click () {
             console.log('click')
           }
+        },
+        data: {
+          text: '这是自定义组件'
         }
       },
       {
-        template: '<div @click="$emit(\'click\')">这是自定义组件</div>' // 自定义组件定义
+        template: '<div @click="$emit(\'click\')">{{text}}</div>', // 自定义组件定义
+        props: {
+          text: {
+            type: String,
+            default: ''
+          }
+        }
       }
     )
     // 绑定确认按钮触发的事件
