@@ -38,20 +38,20 @@ export default {
       }
     )
     // 绑定确认按钮触发的事件
-    vm.$on('postive', (value) => {
-      console.log('点击了确定', value)
-      value && vm.$destroy()
-    })
-    // 绑定取消按钮触发的事件
-    vm.$on('negative', (value) => {
-      console.log('点击了取消', value)
-      vm.$destroy()
-    })
-    // 绑定关闭按钮触发的事件
-    vm.$on('close', (value) => {
-      console.log('点击了关闭', value)
-      vm.$destroy()
-    })
+    // vm.$on('postive', (value) => {
+    //   console.log('点击了确定', value)
+    //   value && vm.$destroy()
+    // })
+    // // 绑定取消按钮触发的事件
+    // vm.$on('negative', (value) => {
+    //   console.log('点击了取消', value)
+    //   vm.$destroy()
+    // })
+    // // 绑定关闭按钮触发的事件
+    // vm.$on('close', (value) => {
+    //   console.log('点击了关闭', value)
+    //   vm.$destroy()
+    // })
   }
 }
 </script>
