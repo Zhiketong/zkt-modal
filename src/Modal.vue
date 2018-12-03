@@ -78,16 +78,16 @@ export default {
   },
   methods: {
     close () {
-      this.callback(this.inputValue, 'close')
+      this.callback(this.inputValue, 'close', this)
       this.$destroy()
     },
     postive () {
-      this.callback(this.inputValue, 'postive')
+      this.callback(this.inputValue, 'postive', this)
       this.$emit('postive', this.inputValue)
       this.autoClose && this.$destroy()
     },
     negative () {
-      this.callback(this.inputValue, 'negative')
+      this.callback(this.inputValue, 'negative', this)
       this.$emit('negative', this.inputValue)
       this.autoClose && this.$destroy()
     }
