@@ -16,7 +16,7 @@ export default {
         okText: '好', // 确认按钮文案
         cancelText: '取消', // 取消按钮文案
         callback (value, type, vm) { // 操作后的回调函数 value是输入框值， type是操作按钮类型 close,postive,negative
-          console.log(value, type)
+          console.log(value, type, vm)
         },
         events: {
           click () {
