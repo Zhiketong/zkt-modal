@@ -7,13 +7,13 @@
     </button>
     <div class="modal-content">
       <header class="modal-header" v-if="title" ref="header">{{title}}</header>
-      <content class="modal-body">
-        <div class="message-content" v-if="message||prompt">
+      <content class="modal-body" v-if="message||prompt">
+        <div class="message-content">
           <p v-if="message">{{message}}</p>
           <input type="text" class="form-control" v-model="inputValue" v-if="prompt">
         </div>
-        <modal-body v-if="$options.components.ModalBody" v-bind="data" v-on="events" ref="body"></modal-body>
       </content>
+      <modal-body  v-if="$options.components.ModalBody" v-bind="data" v-on="events" ref="body"></modal-body>
       <footer class="modal-footer" v-if="okText||cancelText" ref="footer">
         <button class="btn btn-primary" v-if="okText" @click="postive">{{okText}}</button>
         <button class="btn btn-default" v-if="cancelText" @click="negative">{{cancelText}}</button>

@@ -24,7 +24,8 @@ export default {
           }
         },
         data: {
-          text: '这是自定义组件'
+          text: '这是自定义组件',
+          class: 'modal-body'
         }
       },
       {
