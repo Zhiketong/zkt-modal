@@ -2,7 +2,7 @@
 <div class="component-modal modal fade in">
   <div class="modal-backdrop fade in"></div>
   <div class="modal-dialog" :class="'modal-'+size">
-    <button class="close" @click="close">
+    <button class="close" @click="close" v-if="closeable">
       <span aria-hidden="true">×</span>
     </button>
     <div class="modal-content">
@@ -74,6 +74,10 @@ export default {
       default () {
         return function () {}
       }
+    },
+    closeable: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {

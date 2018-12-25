@@ -13,6 +13,7 @@ export default {
         message: '操作后无法撤销', // 提示信息
         prompt: true, // 是否有输入框 默认为false
         autoClose: false, // 是否自动关闭 默认为true
+        closeable: false,
         okText: '好', // 确认按钮文案
         cancelText: '取消', // 取消按钮文案
         callback (value, type, vm) { // 操作后的回调函数 value是输入框值， type是操作按钮类型 close,postive,negative
