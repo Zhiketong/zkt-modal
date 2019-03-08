@@ -1,5 +1,5 @@
 <template>
-<div class="component-modal modal fade in">
+<div class="component-modal modal fade in ">
   <div class="modal-backdrop fade in"></div>
   <div class="modal-dialog" :class="'modal-'+size">
     <button class="close" @click="close" v-if="closeable">
@@ -111,6 +111,13 @@ export default {
 <style>
 .component-modal.modal {
   display: block;
+  opacity: 0;
+  animation: a-opacity 0.6s ease-in-out 0s ;
+  animation-fill-mode: forwards;
+}
+@keyframes a-opacity {
+  0%{opacity: 0;}
+  100%{opacity: 1}
 }
 .modal .modal-backdrop {
   z-index: 0;
@@ -132,6 +139,15 @@ export default {
   height: 100%;
   border: none;
   border-radius: 0;
+}
+.modal .modal-content{
+  transform: scale(0);
+  animation: a-modal-content 0.3s ease-in-out 0.3s ;
+  animation-fill-mode: forwards;
+}
+@keyframes a-modal-content {
+  0%{transform: scale(0);}
+  100%{transform: scale(1);}
 }
 .modal .modal-body {
   display: block;
