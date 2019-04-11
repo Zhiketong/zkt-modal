@@ -29,6 +29,7 @@ export default {
           class: 'modal-body'
         }
       },
+      // 'custom-content'
       {
         template: '<div @click="$emit(\'click\')">{{text}}</div>', // 自定义组件定义
         props: {
